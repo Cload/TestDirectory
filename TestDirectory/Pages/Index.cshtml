@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+<link href="~/css/solid.min.css" rel="stylesheet" />
+@section Scripts{ 
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/treejs/jstree.js"></script>
+    <script src="~/js/directory.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            var folderData = @Html.Raw(Model.SerializedFolder);
+            var containerElement = $("#tree");
+            createTree(containerElement, folderData);
+        })
+    </script>
+}
+<style>
+    li {
+        text-align: left;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div id="tree">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
